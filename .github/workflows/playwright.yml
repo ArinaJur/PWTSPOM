@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ '22.12.0', '20.18.1' ]
+        report-on-node: [ '22' ]
 
     steps:
     - name: Clone project
@@ -37,20 +38,20 @@ jobs:
         URL: ${{ secrets.URL}}
         CI_RUN: true
 
-    - name: Attach Playwright report Node version ${{ matrix.node-version }}
+    - name: Attach Playwright report Node version ${{ matrix.report-on-node }}
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: html-report-${{ matrix.node-version }}
+        name: html-report-${{ matrix.report-on-node }}
         path: reports/html-report/
         retention-days: 30
 
-    - name: Attach JUnit report Node version ${{ matrix.node-version }}
+    - name: Attach JUnit report Node version ${{ matrix.report-on-node }}
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: junit-report-${{ matrix.node-version }}
-        path: reports/junit-report/test-results-${{ matrix.node-version }}.xml
+        name: junit-report-${{ matrix.report-on-node }}
+        path: reports/junit-report/test-results-${{ matrix.report-on-node }}.xml
         retention-days: 30
 
     - name: Create TestRun Report
