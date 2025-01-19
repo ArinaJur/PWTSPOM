@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 'lts/*', '20.18.1' ]
+        node-version: [ '22.12.0', '20.18.1' ]
 
     steps:
     - name: Clone project
