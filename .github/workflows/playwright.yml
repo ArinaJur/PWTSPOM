@@ -54,6 +54,5 @@ jobs:
       if: success() || failure()
       with:
         name: JUnit Tests
-        artifact: junit-report
-        path: '*.xml'
+        path: reports/junit-report/test-results.xml
         reporter: jest-junit
