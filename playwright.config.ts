@@ -41,7 +41,7 @@ export default defineConfig({
     ['@estruyf/github-actions-reporter'],
     ['monocart-reporter', {
       name: "Monocart Report",
-      outputFile: './monocart-report/index.html'
+      outputFile: 'reports/monocart-report/index.html'
     }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
